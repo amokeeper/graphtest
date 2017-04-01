@@ -1,0 +1,16 @@
+
+{#
+继承默认页面内容
+#}
+
+{% extends '../layouts/default.html' %}
+
+
+{#
+    content块的内容赋值
+#}
+{% block content %}
+    <h3>欢迎使用图测，你好：{{user.LOGIN_NAME}}</h3>
+
+    <p>哈罗!  你已经登录系统了!</p>
+{% endblock %}

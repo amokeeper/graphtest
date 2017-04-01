@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>图测</title>
+      
+        <link rel="stylesheet" href="/vendor/bootstrap.min.css">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar">11</span>
+                        <span class="icon-bar">22</span>
+                        <span class="icon-bar">33</span>
+                    </button>
+                    <a class="navbar-brand" href="/">图测</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    {% if isAuthenticated %}
+                    <ul class="nav navbar-nav">
+                        <li ><a href="/home">工作区 <span class="sr-only">(current)</span></a></li>
+                        <li ><a href="/api">接口服务 <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logout">注销</a></li>
+                       
+                    </ul>
+                     {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                       
+                        <li><a href="/login">登录</a></li>
+                    </ul>
+                     {% endif %}
+
+
+                </div>
+            </div>
+        </nav>
+
+  {% for message in messages %}
+        <div class="alert alert-dismissible alert-{{ message.type }}">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ message.message }}
+        </div>
+  {% endfor %}
+
+
+        {#
+        content块的内容占位
+        #}
+        {% block content %}{% endblock %}
+    </body>
+</html>
